@@ -26,7 +26,7 @@
       </div>
       <section class="projects bg-transparent effect-tilt p-0">
         <div class="container">
-          <div class="grid gutter-40 clearfix">
+          <div class="grid gutter-20 clearfix">
             <div class="grid-sizer"></div>
             <ProjectsDetailsComponent  v-for="project  in projects" :key="project.key"
                                        :project="project"

@@ -9,13 +9,17 @@
 }
 .grid-item {
   cursor: pointer;
+  display: flex;
   img.item_image {
     height: 100%;
   }
 }
 .thumb {
-  width: 45%;
-  margin: 0 auto;
+  width: 60%;
+  margin: 0 10px;
+}
+.works-info {
+  text-align: end;
 }
 .explored-projects {
   height: 80vh;
@@ -30,15 +34,23 @@
   .thumb {
     flex-basis: 90%;
     flex-shrink: 0;
+    margin: 0;
     &:not(:first-child) {
       border-left: 5px solid var(--mrittik-gray-300);
     }
-    .works-info {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, .47);
-      padding: 10px;
+  }
+
+  .works-info {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    bottom: 0;
+    background: rgba(0, 0, 0, .47);
+    padding: 10px;
+    height: fit-content;
+    width: fit-content;
+    .label-text {
+      width: 10rem;
     }
   }
 }
@@ -56,14 +68,14 @@
 </style>
 <template>
   <div :class="{'explored-projects': project.opened, 'grid-item': true }"  @click="explore()">
+    <div class="works-info">
+      <div class="label-text">
+        <h5><a href="#">{{project.title}}</a></h5>
+        <h6><a href="#">{{project.description}}</a></h6>
+      </div>
+    </div>
     <div class="thumb">
       <img class="item_image" :src="project.image" alt="">
-      <div class="works-info">
-        <div class="label-text">
-          <h5>{{project.title}}</h5>
-          <h6>{{project.description}}</h6>
-        </div>
-      </div>
     </div>
     <template  v-if="project.opened">
       <div class="thumb" v-for="elem in elems" :key="elem.key">

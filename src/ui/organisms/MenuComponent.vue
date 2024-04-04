@@ -1,10 +1,4 @@
 <style lang="scss">
-  .header {
-    background: rgba(0, 0, 0, .65);
-    &.bg-dark.sticky .dark_logo {
-      background: rgba(0, 0, 0, .65);
-    }
-  }
   .copyright {
     text-align: center;
   }
