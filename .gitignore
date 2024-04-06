@@ -27,3 +27,6 @@ coverage
 *.sln
 *.sw?
 .vercel
+
+# Environment variables
+.env

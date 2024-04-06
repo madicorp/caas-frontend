@@ -17,9 +17,11 @@
 .thumb {
   width: 60%;
   margin: 0 10px;
+  flex: 3;
 }
 .works-info {
   text-align: end;
+  flex: 1;
 }
 .explored-projects {
   height: 80vh;
@@ -32,6 +34,7 @@
     display: none;
   }
   .thumb {
+    flex: 1;
     flex-basis: 90%;
     flex-shrink: 0;
     margin: 0;
@@ -41,6 +44,7 @@
   }
 
   .works-info {
+    flex: 1;
     position: sticky;
     left: 0;
     z-index: 1;
@@ -55,74 +59,45 @@
   }
 }
 
-.infinite-loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 1.5rem;
-  color: var(--mrittik-gray-300);
-}
 </style>
 <template>
   <div :class="{'explored-projects': project.opened, 'grid-item': true }"  @click="explore()">
     <div class="works-info">
       <div class="label-text">
-        <h5><a href="#">{{project.title}}</a></h5>
-        <h6><a href="#">{{project.description}}</a></h6>
+        <h5><a href="#">{{project.attributes.name}}</a></h5>
+        <h6><a href="#">{{project.information.category}}</a></h6>
+        <h6><a href="#">{{project.information.client}}</a></h6>
+        <h6><a href="#">{{project.information.date}}</a></h6>
+        <h6><a href="#">{{project.information.place}}</a></h6>
       </div>
     </div>
     <div class="thumb">
-      <img class="item_image" :src="project.image" alt="">
+      <img class="item_image" :src="previewImage.url" :alt="previewImage.alt || ''">
     </div>
     <template  v-if="project.opened">
-      <div class="thumb" v-for="elem in elems" :key="elem.key">
-        <img class="item_image" :src="elem.image" alt="">
+      <div class="thumb" v-for="image in images" :key="image.id">
+        <img class="item_image" :src="image.url" :alt="image.alt || ''">
       </div>
-      <infinite-loading class="infinite-loader" @infinite="load" />
+      <div class="end-scroll">
+        <h3>fin</h3>
+      </div>
     </template>
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
-import InfiniteLoading from "v3-infinite-loading";
-import "v3-infinite-loading/lib/style.css";
+import type { Media, ProjectComponent } from "src/types";
+import { onMounted, ref } from "vue";
+const emit = defineEmits(['exploreProject'])
+const props  = defineProps<{project: ProjectComponent}>()
+const images = ref<Media[]>([])
+const previewImage = ref<Media>({} as Media)
 
-const props  = defineProps<{
-  project: {
-    key: number
-    image: string
-    title: string
-    description: string
-    opened: boolean
-  }
-}>()
 
-const elems = ref(
-  Array.from({ length: 10 }, (_, i) => ({
-    key: i,
-    image: 'http://www.caas.sn/wp-content/uploads/2016/03/1-Masse.jpg',
-    title: 'California young menz club',
-    description: 'Club House.',
-  }))
-)
-const load = async ($state: any) => {
-  setTimeout(() => {
-    elems.value.push(
-      ...Array.from({ length: 3 }, (_, i) => ({
-        key: i,
-        image: 'http://www.caas.sn/wp-content/uploads/2015/10/2-Vue-2.jpg',
-        title: 'California young menz club',
-        description: 'Club House.',
-      }))
-    )
-    $state.loaded()
-  }, 2000)
-}
-
+onMounted(() => {
+  previewImage.value = props.project.media[0]
+  images.value = props.project.media.slice(1)
+})
 const explore = () => {
-  props.project.opened = true
+  emit('exploreProject')
 }
 </script>

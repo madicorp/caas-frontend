@@ -29,10 +29,10 @@ function toggleDarkMode() {
   document.body.classList.toggle('bg-white')
   if (document.body.classList.contains('bg-white')) {
     mode_switcher.value.innerHTML = '<span><i class="bi bi-sun-fill"></i></span>'
-    localStorage.setItem('theme', 'dark')
+    localStorage.setItem('theme', 'light')
   } else {
     mode_switcher.value.innerHTML = '<span><i class="bi bi-moon-fill"></i></span>'
-    localStorage.setItem('theme', 'light')
+    localStorage.setItem('theme', 'dark')
   }
 }
 </script>

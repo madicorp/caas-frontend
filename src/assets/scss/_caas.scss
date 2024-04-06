@@ -1,5 +1,64 @@
-.bg-white {
+body.bg-white {
+  .mr_menu_toggle {
+    color: #54595f;
+  }
+  .page_header.in-service .page_header_inner {
+    background: rgba(255, 255, 255, .1) !important;
+  }
   .works-info {
     background: rgba(255, 255, 255, .47) !important;
+  }
+  .end-scroll {
+    color: var(--mrittik-gray-400);
+    background: rgba(255, 255, 255, .7);
+    &:before {
+      background-image: url(../../assets/img/btn-texture-black.png);
+    }
+  }
+}
+
+.page_header.in-service {
+  padding: 0;
+  .page_header_inner {
+    height: 320px;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.copyright a {
+  color: #ffffff !important;
+}
+
+.end-scroll {
+  width: 100%;
+  min-height: 1px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--mrittik-gray-600);
+  background: transparent;
+
+  &:before {
+    content: "";
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 100%;
+    left: 9px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    z-index: -1;
+    transition: left 0.3s ease-out 0.3s, top 0.3s ease-out 0.3s;
+    background-image: url(../../assets/img/btn-texture-white.png);
+  }
+  h3 {
+    text-transform: uppercase;
+    transform: rotate(90deg);
+    margin: 0 auto;
+    text-align: center;
+    bottom: 50%;
+    left: 0;
+    position: relative;
   }
 }
