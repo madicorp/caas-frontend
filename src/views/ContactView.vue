@@ -43,7 +43,7 @@
   onMounted(() => {
     loadScript(
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyCmY5gLZ--X_K1mRPNlxawEnjz_4Qs3fR0&v=3",
-      "google-maps" , () => { loadContactMap('https://caas.sn/wp-content/uploads/2015/08/map-marker.png')}
+      "google-maps" , () => { loadContactMap('/assets/img/map-marker.png')}
     )
   });
 </script>

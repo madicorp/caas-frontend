@@ -1,6 +1,6 @@
 <style scoped>
   .page_header {
-    background: url(https://www.caas.sn/wp-content/themes/caas/images/background/bg-subheader.jpg) no-repeat top center;
+    background: url(/assets/img/bg-subheader.jpg) no-repeat top center;
     background-size: cover;
     background-position-y: 10%;
   }

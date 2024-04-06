@@ -1,6 +1,6 @@
 <template>
   <RouterLink to="/">
-    <img src="https://www.caas.sn/wp-content/themes/caas/images/logo.png" alt="logo" />
+    <img src="/assets/img/logo.png" alt="logo" />
   </RouterLink>
 </template>
 <script setup lang="ts">

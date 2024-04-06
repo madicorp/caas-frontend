@@ -7,7 +7,7 @@
           <p class="text-gray-600">Our organizational sprit believes that where design meets passion & love with space, good architecture happens here</p>
         </div>
         <div class="has_line"></div>
-        <img src="http://www.caas.sn/wp-content/uploads/2015/08/3-Vue-33.jpg" alt="">
+        <img src="/assets/img/3-Vue-33.jpg" alt="">
       </div>
 
       <div class="mission_bottom_part">

@@ -48,7 +48,7 @@
   onMounted(() => {
     loadScript(
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyCmY5gLZ--X_K1mRPNlxawEnjz_4Qs3fR0&v=3",
-      "google-maps" , () => { loadSitesMap('https://caas.sn/wp-content/uploads/2015/10/homegardenbusiness.png')}
+      "google-maps" , () => { loadSitesMap('/assets/img/homegardenbusiness.png')}
     )
   });
 </script>

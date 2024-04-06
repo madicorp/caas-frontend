@@ -92,17 +92,17 @@
     {
       title: "Best Architectural Design",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
-      image: "https://www.caas.sn/wp-content/uploads/2015/08/Untitled-1.jpg",
+      image: "/assets/img/Untitled-1.jpg",
     },
     {
       title: "Best Architectural Design",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
-      image: "https://www.caas.sn/wp-content/uploads/2015/08/Untitled-2.jpg",
+      image: "/assets/img/Untitled-2.jpg",
     },
     {
       title: "Best Architectural Design",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
-      image: "https://www.caas.sn/wp-content/uploads/2019/11/195C6477-301A-4205-B96C-3E03B23BFF77.jpg",
+      image: "/assets/img/Untitled-3.jpg",
     },
   ]
 
