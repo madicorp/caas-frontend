@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: yarn build
         env:
-          VITE_BACKEND_URL=${{ env.BACKEND_URL }}
+          VITE_BACKEND_URL: ${{ env.BACKEND_URL }}
       - uses: actions/upload-artifact@master
         with:
           name: dist
