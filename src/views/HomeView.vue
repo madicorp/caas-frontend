@@ -89,7 +89,7 @@ onMounted(async () => {
 })
 
 const load = async ($state: any) => {
-  if (projects.value.length >= totalProjects.value && totalProjects.value !== 0) {
+  if (projects.value.length >= totalProjects.value || totalProjects.value === 0) {
     $state.complete()
     return
   }
