@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: yarn build
         env:
-          VITE_BACKEND_URL=${{ vars.BACKEND_URL }}
+          VITE_BACKEND_URL=${{ env.BACKEND_URL }}
       - uses: actions/upload-artifact@master
         with:
           name: dist
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: ${{ vars.FRONTEND_URL }}
+      url: ${{ env.FRONTEND_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@master
