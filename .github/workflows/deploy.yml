@@ -18,7 +18,8 @@ jobs:
         run: yarn
       - name: Build
         run: yarn build
-
+        env:
+          VITE_BACKEND_URL: ${{ vars.BACKEND_URL }}
 
       - name: Deploy
         uses: jakejarvis/s3-sync-action@master
