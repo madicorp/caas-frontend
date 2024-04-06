@@ -6,6 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,7 +16,9 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Build
-        run: VITE_BACKEND_URL=${{ env.BACKEND_URL }} yarn build
+        run: yarn build
+        env:
+          VITE_BACKEND_URL: ${{ env.BACKEND_URL }}
       - uses: actions/upload-artifact@master
         with:
           name: dist
