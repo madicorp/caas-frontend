@@ -73,7 +73,7 @@ import FooterComponent from "@/ui/organisms/FooterComponent.vue";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL + '/api'
 const projects = ref<ProjectComponent[]>([])
-const totalProjects = ref(0)
+const totalProjects = ref<number | undefined>(undefined)
 const currentPages = ref(1)
 
 async function getProjects(params = { pageSizes: 10, page: 1 }) {
@@ -89,7 +89,8 @@ onMounted(async () => {
 })
 
 const load = async ($state: any) => {
-  if (projects.value.length >= totalProjects.value || totalProjects.value === 0) {
+  if (totalProjects.value !== undefined && projects.value.length >= totalProjects.value || totalProjects.value === 0) {
+    console.log(projects.value.length, totalProjects.value)
     $state.complete()
     return
   }
