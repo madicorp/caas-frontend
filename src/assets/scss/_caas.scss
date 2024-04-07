@@ -1,18 +1,21 @@
-body.bg-white {
-  .mr_menu_toggle {
-    color: #54595f;
-  }
-  .page_header.in-service .page_header_inner {
-    background: rgba(255, 255, 255, .1) !important;
-  }
-  .works-info {
-    background: rgba(255, 255, 255, .47) !important;
-  }
-  .end-scroll {
-    color: var(--mrittik-gray-400);
-    background: rgba(255, 255, 255, .7);
-    &:before {
-      background-image: url(../../assets/img/btn-texture-black.png);
+body {
+  margin: 0;
+  &.bg-white {
+    .mr_menu_toggle {
+      color: #54595f;
+    }
+    .page_header.in-service .page_header_inner {
+      background: rgba(255, 255, 255, .1) !important;
+    }
+    .works-info {
+      background: rgba(255, 255, 255, .47) !important;
+    }
+    .end-scroll {
+      color: var(--mrittik-gray-400);
+      background: rgba(255, 255, 255, .7);
+      &:before {
+        background-image: url(../../assets/img/btn-texture-black.png);
+      }
     }
   }
 }
@@ -61,4 +64,10 @@ body.bg-white {
     left: 0;
     position: relative;
   }
+}
+
+@media only screen and (max-width: 1024px) {
+ body {
+   padding: 0 20px;
+ }
 }

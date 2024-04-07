@@ -59,6 +59,43 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .grid-item {
+    flex-direction: column;
+    .thumb {
+      width: 100%;
+    }
+    .works-info {
+      text-align: center;
+    }
+  }
+  .explored-projects {
+    flex-direction: row;
+    height: 60vw;
+    .thumb {
+      flex: 1;
+      flex-basis: content;
+      flex-shrink: 0;
+      margin: 0;
+      &:not(:first-child) {
+        border-left: 5px solid var(--mrittik-gray-300);
+      }
+    }
+  }
+
+}
+@media screen and (max-width: 768px) {
+  .explored-projects {
+    height: 60vw;
+  }
+}
+@media screen and (max-width: 576px) {
+  .explored-projects {
+    .works-info {
+      position: relative;
+    }
+  }
+}
 </style>
 <template>
   <div :class="{'explored-projects': project.opened, 'grid-item': true }"  @click="explore()">
