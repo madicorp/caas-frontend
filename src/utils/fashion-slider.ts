@@ -22,7 +22,6 @@ export default function createFashionSlider() {
   const onNextClick = () => {
     if (!navigationLocked) {
       fashionSlider?.slideNext()
-      console.log('next', fashionSlider)
     }
   }
   const onPrevClick = () => {

@@ -57,7 +57,7 @@ section.projects {
       </section>
     </template>
     <template v-slot:footer>
-      <FooterComponent />
+      <FooterComponent  v-if="projectLoadComplete"/>
     </template>
   </MainLayout>
 </template>
@@ -68,13 +68,14 @@ import InfiniteLoading from 'v3-infinite-loading'
 import 'v3-infinite-loading/lib/style.css'
 import { onMounted, ref } from 'vue'
 import type { Project, ProjectComponent } from 'src/types'
-import { projectComponentMapper, projectMapper } from "@/mappers";
+import { projectComponentMapper } from "@/mappers";
 import FooterComponent from "@/ui/organisms/FooterComponent.vue";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL + '/api'
 const projects = ref<ProjectComponent[]>([])
 const totalProjects = ref<number | undefined>(undefined)
 const currentPages = ref(1)
+const projectLoadComplete = ref(false)
 
 async function getProjects(params = { pageSizes: 10, page: 1 }) {
   const paramUrl = `sort[0]=information.date:desc&pagination[page]=${params.page}&pagination[pageSize]=${params.pageSizes}&pagination[withCount]=true`
@@ -90,8 +91,8 @@ onMounted(async () => {
 
 const load = async ($state: any) => {
   if (totalProjects.value !== undefined && projects.value.length >= totalProjects.value || totalProjects.value === 0) {
-    console.log(projects.value.length, totalProjects.value)
     $state.complete()
+    projectLoadComplete.value = true
     return
   }
   const response = await getProjects({ pageSizes: 10, page: currentPages.value + 1 })
