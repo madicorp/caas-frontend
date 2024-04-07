@@ -311,7 +311,7 @@ export function loadSitesMap(icon: string) {
     zoomControl: true,
   };
   const map = new (window as any).google.maps.Map(document.getElementById("googleMap"), mapProp);
-  const marker = new new (window as any).google.maps.Marker({
+  const marker = new (window as any).google.maps.Marker({
     position: new (window as any).google.maps.LatLng(14.74148,-17.42461),
     animation: (window as any).google.maps.Animation.DROP,
     map: map,
