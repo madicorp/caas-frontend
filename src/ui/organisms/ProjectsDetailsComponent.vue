@@ -71,10 +71,10 @@
   }
   .explored-projects {
     flex-direction: row;
-    height: 60vw;
+    height: 60vh;
     .thumb {
       flex: 1;
-      flex-basis: content;
+      flex-basis: fit-content;
       flex-shrink: 0;
       margin: 0;
       &:not(:first-child) {
@@ -83,11 +83,6 @@
     }
   }
 
-}
-@media screen and (max-width: 768px) {
-  .explored-projects {
-    height: 60vw;
-  }
 }
 @media screen and (max-width: 576px) {
   .explored-projects {
