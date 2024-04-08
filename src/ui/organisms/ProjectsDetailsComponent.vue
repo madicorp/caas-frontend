@@ -93,7 +93,7 @@
 }
 </style>
 <template>
-  <div :class="{'explored-projects': project.opened, 'grid-item': true }"  @click="explore()">
+  <div :class="{'explored-projects': project.opened && images.length > 0, 'grid-item': true }"  @click="images.length > 0 && explore()">
     <div class="works-info">
       <div class="label-text">
         <h5><a href="#">{{project.attributes.name}}</a></h5>
@@ -106,7 +106,7 @@
     <div class="thumb">
       <img class="item_image" :src="previewImage.url" :alt="previewImage.alt || ''">
     </div>
-    <template  v-if="project.opened">
+    <template v-if="project.opened && images.length > 0">
       <div class="thumb" v-for="image in images" :key="image.id">
         <img class="item_image" :src="image.url" :alt="image.alt || ''">
       </div>
