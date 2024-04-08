@@ -14,10 +14,11 @@
   </div>
   <!-- Cursor Effect -->
   <div class="pointer bnz-pointer" id="bnz-pointer"></div>
+  <slot name="menu">
+    <MenuComponent />
 
-  <MenuComponent />
-
-  <AsideComponent />
+    <AsideComponent />
+  </slot>
   <!-- Main Wrapper-->
   <main class="wrapper">
     <slot name="header"></slot>

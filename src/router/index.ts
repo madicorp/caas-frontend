@@ -4,12 +4,18 @@ import AboutView from '../views/AboutView.vue'
 import AwardsView from '../views/AwardsView.vue'
 import QuoteView from '../views/QuoteView.vue'
 import ContactView from '../views/ContactView.vue'
+import ComingSoonView from "@/views/ComingSoonView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
+      name: 'ComingSoon',
+      component: ComingSoonView
+    },
+    {
+      path: '/accueil',
       name: 'Accueil',
       component: HomeView
     },
@@ -36,7 +42,7 @@ const router = createRouter({
     },
     {
       path: '/:pathMatch(.*)*',
-      redirect: { name: 'Accueil' }
+      redirect: { name: 'ComingSoon' }
     }
   ]
 })
