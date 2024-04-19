@@ -53,8 +53,30 @@
     padding: 10px;
     height: fit-content;
     width: fit-content;
+    &.details {
+      position: relative;
+      bottom: auto;
+      top: 0;
+      background: rgba(0, 0, 0, .47);
+      padding: 10px;
+      height: fit-content;
+      width: fit-content;
+      .label-text {
+        width: 13rem;
+        text-align: start;
+        p {
+          margin: 0;
+          padding: 0;
+        }
+        .desc {
+          font-size: 0.65rem;
+          margin-top: 1rem;
+          text-align: justify;
+        }
+      }
+    }
     .label-text {
-      width: 10rem;
+      width: 20rem;
     }
   }
 }
@@ -97,14 +119,25 @@
     <div class="works-info">
       <div class="label-text">
         <h5><a href="#">{{project.attributes.name}}</a></h5>
-        <h6><a href="#">{{project.information.category}}</a></h6>
-        <h6><a href="#">{{project.information.client}}</a></h6>
-        <h6><a href="#">{{project.information.date}}</a></h6>
-        <h6><a href="#">{{project.information.place}}</a></h6>
       </div>
     </div>
     <div class="thumb">
       <img class="item_image" :src="previewImage.url" :alt="previewImage.alt || ''">
+    </div>
+    <div v-if="project.opened" class="works-info details">
+      <div class="label-text">
+        <p href="#"><b>{{project.information.category}}</b></p>
+        <p href="#"><b>{{project.information.client}}</b></p>
+        <p href="#"><b>{{project.information.date}}</b></p>
+        <p href="#"><b>{{project.information.place}}</b></p>
+        <p class="desc">
+          lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
     </div>
     <template v-if="project.opened && images.length > 0">
       <div class="thumb" v-for="image in images" :key="image.id">

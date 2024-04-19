@@ -306,9 +306,6 @@ export function loadSitesMap(icon: string) {
     center: center,
     zoom: 6,
     styles: mapStyles,
-    disableDefaultUI: true,
-    scrollwheel: true,
-    zoomControl: true,
   };
   const map = new (window as any).google.maps.Map(document.getElementById("googleMap"), mapProp);
   const marker = new (window as any).google.maps.Marker({

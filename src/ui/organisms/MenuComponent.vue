@@ -29,7 +29,7 @@
           </ul>
         </div>
         <div class="header_right_part d-flex align-items-center">
-          <button class="aside_open" @click="toggle_aside('open')">
+          <button class="aside_open" @click="toggle_menu('open')">
             <span class="line"></span>
             <span class="line"></span>
             <span class="line"></span>
@@ -37,22 +37,9 @@
           <div class="header_search">
             <button type="submit" class="form-control-submit"><i class="bi bi-search"></i></button>
           </div>
-          <div class="open_search">
-            <form class="search_form" action="search.php">
-              <input
-                type="text"
-                name="search"
-                class="keyword form-control"
-                placeholder="Search..." />
-              <button type="submit" class="form-control-submit">
-                <i class="bi bi-search"></i>
-              </button>
-            </form>
-          </div>
-
           <!-- Mobile Responsive Menu Toggle Button -->
-          <button type="button" class="mr_menu_toggle" @click="toggle_menu('open')">
-            <i class="bi bi-list"></i>
+          <button type="button" class="mr_menu_toggle" @click="toggle_aside('open')">
+            <span class="bi bi-list"></span>
           </button>
         </div>
       </div>

@@ -21,20 +21,6 @@ section.projects {
 <template>
   <MainLayout>
     <template v-slot:main>
-      <div class="theme_slider_5 p-0">
-        <div class="slider">
-          <!-- Section Grid Lines -->
-          <ul class="grid_lines d-none d-md-flex justify-content-between">
-            <li class="grid_line"></li>
-            <li class="grid_line"></li>
-            <li class="grid_line"></li>
-            <li class="grid_line"></li>
-            <li class="grid_line"></li>
-            <li class="grid_line"></li>
-            <li class="grid_line"></li>
-          </ul>
-        </div>
-      </div>
       <section class="projects bg-transparent effect-tilt p-0">
         <div class="container">
           <div class="grid gutter-20 clearfix">

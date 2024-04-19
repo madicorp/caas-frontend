@@ -1,7 +1,7 @@
 <template>
   <div>
-    <LogoComponent class="light_logo" />
-    <LogoComponent class="dark_logo" />
+    <LogoComponent image="/assets/img/logo_white.png" class="light_logo" />
+    <LogoComponent image="/assets/img/logo_white.png" class="dark_logo" />
   </div>
 </template>
 <script setup lang="ts">

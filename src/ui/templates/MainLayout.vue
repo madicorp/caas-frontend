@@ -16,7 +16,6 @@
   <div class="pointer bnz-pointer" id="bnz-pointer"></div>
   <slot name="menu">
     <MenuComponent />
-
     <AsideComponent />
   </slot>
   <!-- Main Wrapper-->
@@ -28,17 +27,6 @@
   <div class="totop">
     <a href="#">UP</a>
   </div>
-
-  <!-- Page Grid Lines -->
-  <ul class="grid_lines d-md-flex justify-content-between vh-100 position-fixed top-0">
-    <li class="grid_line"></li>
-    <li class="grid_line"></li>
-    <li class="grid_line"></li>
-    <li class="grid_line"></li>
-    <li class="grid_line"></li>
-    <li class="grid_line"></li>
-    <li class="grid_line"></li>
-  </ul>
 </template>
 <script setup lang="ts">
 import AsideComponent from "@/ui/organisms/AsideComponent.vue";
