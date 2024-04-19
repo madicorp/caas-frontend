@@ -78,10 +78,9 @@ const currentPages = ref(1)
 const projectLoadComplete = ref(false)
 
 async function getProjects(params = { pageSizes: 10, page: 1 }) {
-  const paramUrl = `sort[0]=information.date:desc&pagination[page]=${params.page}&pagination[pageSize]=${params.pageSizes}&pagination[withCount]=true`
-  return fetch(`${apiUrl}/projects?populate[0]=information,gallery&${paramUrl}`).then((response) =>
-    response.json()
-  )
+  const paramUrl = `sort[0]=information.date:desc&pagination[page]=${params.page}&\
+                    pagination[pageSize]=${params.pageSizes}&pagination[withCount]=true`
+  return fetch(`${apiUrl}/projects?populate[0]=information,gallery&${paramUrl}`).then(response => response.json())
 }
 onMounted(async () => {
   const response = await getProjects({ pageSizes: 10, page: 1 })

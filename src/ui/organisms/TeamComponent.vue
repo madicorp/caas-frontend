@@ -5,18 +5,24 @@
     margin-bottom: 50px;
   }
 }
+body.bg-white {
+  .swiper_team .swiper-navigation .swiper-button-next, .swiper_team .swiper-navigation .swiper-button-prev {
+    color: var(--mrittik-gray-800);
+  }
+}
 </style>
 <template>
   <section class="team">
     <div class="container">
       <div class="section-header text-center has_line">
-        <h1 class="text-white">Our Team</h1>
+        <h1 class="text-white">Notre Equipe</h1>
       </div>
       <div class="row boss-member">
         <div class="col-4">
           <div class="team_inner">
             <TeamMemberComponent
-              image="/assets/img/team/1.jpg" name="Michel Robertson" job="ARCHITECT"/>
+              :image="ceo.photo.url" :name="ceo.name" :job="ceo.position"
+            :phone="ceo.phone" :email="ceo.email"/>
           </div>
       </div>
         <!-- Swiper Team -->
@@ -58,7 +64,11 @@
             dynamicBullets: true
           }">
           <swiper-slide v-for="member in teamMembers" :key="member.name">
-            <TeamMemberComponent :image="member.image" :name="member.name" :job="member.job"/>
+            <div class="team_inner">
+
+            <TeamMemberComponent :image="member.photo.url" :name="member.name"
+                                 :job="member.position" :email="member.email" :phone="member.phone"/>
+            </div>
             </swiper-slide>
           <!-- Add Buttons -->
           <div class="swiper-navigation">
@@ -74,36 +84,17 @@
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation } from "swiper/modules";
 import TeamMemberComponent from "@/ui/molecules/TeamMemberComponent.vue";
-
-const teamMembers = [
-  {
-    image: "/assets/img/team/1.jpg",
-    name: "Michel Robertson",
-    job: "ARCHITECT"
-  },
-  {
-    image: "/assets/img/team/2.jpg",
-    name: "Mellisa Johansen",
-    job: "ARCHITECT"
-  },
-  {
-    image: "/assets/img/team/3.jpg",
-    name: "Dave Crossby",
-    job: "ARCHITECT"
-  },
-  {
-    image: "/assets/img/team/4.jpg",
-    name: "Hazel R. Grace",
-    job: "ARCHITECT"
-  },
-  {
-    image: "/assets/img/team/5.jpg",
-    name: "Benjamin Brook",
-    job: "ARCHITECT"
-  },
-]
+import type { TeamMember } from "@/types/about";
+import type { PropType } from "vue";
+import { teamComponentMapper } from "@/mappers";
 
 export default {
+  props: {
+    team: {
+      type: Array,
+      required: true
+    }
+  },
   components: {
     TeamMemberComponent,
     Swiper,
@@ -115,8 +106,10 @@ export default {
     }
   },
   data() {
+    const {team, ceo} = teamComponentMapper(this.team)
     return {
-      teamMembers
+      teamMembers: team,
+      ceo
     }
   }
 }
