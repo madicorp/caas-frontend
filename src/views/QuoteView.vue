@@ -232,8 +232,7 @@ const submit = async () => {
     formData: fromData
   })
 
-  /// const apiUrl = import.meta.env.VITE_BACKEND_URL + '/api'
-  const apiUrl = 'http://localhost:1337/api'
+  const apiUrl = import.meta.env.VITE_BACKEND_URL + '/api'
 
   fetch(`${apiUrl}/ezforms/submit`, { method: 'POST', headers: { 'Content-Type': 'application/json'}, body: data })
     .then(response => {
