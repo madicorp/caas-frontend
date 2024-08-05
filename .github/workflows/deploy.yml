@@ -19,6 +19,7 @@ jobs:
         run: yarn build
         env:
           VITE_BACKEND_URL: ${{ vars.BACKEND_URL }}
+          VITE_RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
       - uses: actions/upload-artifact@master
         with:
           name: dist

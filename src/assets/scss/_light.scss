@@ -16,7 +16,7 @@ body.bg-dark.bg-white, body.bg-white {
         background-color: $dark-300;
         color: $white;
         &:before {    
-            background-image: url(../img/btn-texture-gray.png);
+            background-image: url(../assets/img/btn-texture-gray.png);
             border-color: $dark-300;
         }
         &:hover {

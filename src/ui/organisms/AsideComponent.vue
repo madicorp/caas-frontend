@@ -8,22 +8,16 @@
     <button class="aside_close" @click="toggle_aside('close')"><i class="bi bi-x-lg"></i></button>
     <LightAndDarkLogosComponents class="aside_logo" />
     <div class="aside_info_inner">
-      <p>Mrittik Architects is a full-service design firm providing architecture architecture.</p>
+      <p>Nous regardons dans la même direction pour mieux vous servir</p>
 
       <div class="aside_info_inner_box">
-        <h5>Contact Info</h5>
-        <p>+123 456 789 33</p>
+        <h5>Nos Contact</h5>
+        <p>(+221) 33 832 54 84</p>
         <p>
-          3 Madison Street, NY <br />
-          United States of America
+          310, HLM Maristes BP : 3150, Dakar <br />
+          Senegal
         </p>
-        <p>mrittikarch@gmail.com</p>
-
-        <h5>Office Address</h5>
-        <p>
-          +Time Square, New York <br />
-          USA, 3454
-        </p>
+        <p>contact@caas.sn</p>
       </div>
       <div class="social_sites">
         <SocialButtonsComponent class="d-flex align-items-center justify-content-center" />
