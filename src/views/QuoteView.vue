@@ -152,7 +152,10 @@
             </div>
             <div class="mt-5">
               <div class="btn_group">
-                <input class="btn white" type="submit" value="Envoyer" @click="submit" />
+                <input :disabled="loading" class="btn white" type="submit" value="Envoyer" @click="submit" />
+                <div v-if="loading" class="preloader-inner">
+                  <div class="spinner"></div>
+                </div>
               </div>
             </div>
         </div>
@@ -164,6 +167,8 @@
 import PageHeaderLayout from '@/ui/templates/PageLayout.vue'
 import { load } from 'recaptcha-v3'
 import { ref } from "vue";
+import { toast } from "vue3-toastify";
+import 'vue3-toastify/dist/index.css';
 
 const nom = ref('')
 const prenom = ref('')
@@ -176,6 +181,8 @@ const zone = ref('')
 const surface = ref('')
 const ouvrage = ref('')
 const niveau = ref('')
+
+const loading = ref(false)
 
 function verifyEmail(email: string) {
   const re = /\S+@\S+\.\S+/
@@ -207,6 +214,7 @@ async function verifyCaptcha() {
 
 const submit = async () => {
 
+
   const fromData = {
     nom: nom.value,
     prenom: prenom.value,
@@ -222,7 +230,7 @@ const submit = async () => {
   }
 
   if (!validateFormData(fromData)) return
-
+  loading.value = true
 
   const token = await verifyCaptcha()
 
@@ -236,16 +244,24 @@ const submit = async () => {
 
   fetch(`${apiUrl}/ezforms/submit`, { method: 'POST', headers: { 'Content-Type': 'application/json'}, body: data })
     .then(response => {
+      loading.value = false
       if (!response.ok) {
-        throw new Error('Network response was not ok')
+        toast.error('Une erreur est survenue lors de l\'envoi de votre demande')
+        return
       }
-      return response.json()
-    })
-    .then(data => {
-      console.log('Success:', data)
-    })
-    .catch(error => {
-      console.error('Error:', error)
+      toast.success('Votre demande a été envoyée avec succès')
+      // Reset form fields
+      nom.value = ''
+      prenom.value = ''
+      profession.value = ''
+      adresse.value = ''
+      email.value = ''
+      telephone.value = ''
+      precision.value = ''
+      zone.value = ''
+      surface.value = ''
+      ouvrage.value = ''
+      niveau.value = ''
     })
 }
 </script>

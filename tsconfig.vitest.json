@@ -6,6 +6,6 @@
     "allowJs": true,
     "checkJs": false,
     "lib": [],
-    "types": ["node", "jsdom", "jquery", "google.maps"]
+    "types": ["node", "jsdom", "jquery", "google.maps", "vue3-toastify/global"]
   }
 }

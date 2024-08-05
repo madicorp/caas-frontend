@@ -25,7 +25,8 @@
     "v3-infinite-loading": "^1.3.1",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5",
-    "vue-strapi-blocks-renderer": "^0.2.2"
+    "vue-strapi-blocks-renderer": "^0.2.2",
+    "vue3-toastify": "^0.2.2"
   },
   "devDependencies": {
     "@rollup/plugin-inject": "^5.0.5",
