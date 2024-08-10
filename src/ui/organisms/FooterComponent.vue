@@ -12,15 +12,15 @@
             <div class="communication">
               <div class="info_body" data-aos="fade-up" data-aos-duration="700">
                 <h6>Email</h6>
-                <h5>contact@caas.sn</h5>
+                <h5>{{contact.email}}</h5>
               </div>
               <div class="info_body" data-aos="fade-up" data-aos-duration="900">
-                <h6>Phone No</h6>
-                <h5>(+221) 33 832 54 84</h5>
+                <h6>Téléphone</h6>
+                <h5>{{contact.phone}}</h5>
               </div>
               <div class="info_body" data-aos="fade-up" data-aos-duration="1100">
                 <h6>Adresse</h6>
-                <h5>310, HLM Maristes BP : 3150, Dakar , Senegal</h5>
+                <h5>{{contact.address}}</h5>
               </div>
             </div>
           </div>
@@ -31,7 +31,11 @@
                   <LogoComponent image="/assets/img/logo_white.png" class="light_logo" />
                 </div>
                 <div class="footer_social">
-                  <SocialButtonsComponent class="social_list" />
+                  <SocialButtonsComponent class="social_list"
+                    :socials="contact.social"
+                    data-aos="fade-up"
+                    data-aos-duration="700"
+                  />
                 </div>
                 <CopyrightComponent class="text-start" data-aos="fade-up" data-aos-duration="2000" />
               </div>
@@ -54,8 +58,18 @@
   </footer>
 </template>
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
 import CopyrightComponent from "@/ui/molecules/CopyrightComponent.vue";
 import SocialButtonsComponent from "@/ui/molecules/SocialButtonsComponent.vue";
 import LogoComponent from "@/ui/atoms/LogoComponent.vue";
+import { onMounted, ref } from "vue";
+
+const contact = ref({})
+
+onMounted(async () => {
+  const apiUrl = import.meta.env.VITE_BACKEND_URL + '/api'
+  const response = await fetch(apiUrl + '/contact?populate[0]=social').then(res => res.json())
+  contact.value = response.data.attributes
+  console.log(contact.value.phone)
+})
+
 </script>

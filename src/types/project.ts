@@ -6,6 +6,7 @@ type ProjectInformation = {
   place: string;
   client: string;
   category: string;
+  description: string;
 };
 
 export type Project = {

@@ -126,17 +126,11 @@
     </div>
     <div v-if="project.opened" class="works-info details">
       <div class="label-text">
-        <p href="#"><b>{{project.information.category}}</b></p>
-        <p href="#"><b>{{project.information.client}}</b></p>
-        <p href="#"><b>{{project.information.date}}</b></p>
-        <p href="#"><b>{{project.information.place}}</b></p>
-        <p class="desc">
-          lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        <p><b>{{project.information.category}}</b></p>
+        <p><b>{{project.information.client}}</b></p>
+        <p><b>{{project.information.date}}</b></p>
+        <p><b>{{project.information.place}}</b></p>
+        <p class="desc">{{project.information.description}}</p>
       </div>
     </div>
     <template v-if="project.opened && images.length > 0">

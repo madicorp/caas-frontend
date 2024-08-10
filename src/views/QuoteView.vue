@@ -215,7 +215,7 @@ async function verifyCaptcha() {
 const submit = async () => {
 
 
-  const fromData = {
+  const formData = {
     nom: nom.value,
     prenom: prenom.value,
     profession: profession.value,
@@ -229,7 +229,7 @@ const submit = async () => {
     niveau: niveau.value
   }
 
-  if (!validateFormData(fromData)) return
+  if (!validateFormData(formData)) return
   loading.value = true
 
   const token = await verifyCaptcha()
@@ -237,7 +237,7 @@ const submit = async () => {
   const data = JSON.stringify({
     token: token,
     formName: "devis",
-    formData: fromData
+    formData
   })
 
   const apiUrl = import.meta.env.VITE_BACKEND_URL + '/api'

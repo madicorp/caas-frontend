@@ -12,22 +12,29 @@
 
       <div class="aside_info_inner_box">
         <h5>Nos Contact</h5>
-        <p>(+221) 33 832 54 84</p>
-        <p>
-          310, HLM Maristes BP : 3150, Dakar <br />
-          Senegal
-        </p>
-        <p>contact@caas.sn</p>
+        <p>{{contact.phone}}</p>
+        <p>{{contact.address}}</p>
+        <p>{{contact.email}}</p>
       </div>
       <div class="social_sites">
-        <SocialButtonsComponent class="d-flex align-items-center justify-content-center" />
+        <SocialButtonsComponent class="d-flex align-items-center justify-content-center"
+                                :socials="contact.social"/>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import { toggle_aside } from "@/utils/theme";
-import { RouterLink } from "vue-router";
 import LightAndDarkLogosComponents from "@/ui/molecules/LightAndDarkLogosComponents.vue";
 import SocialButtonsComponent from "@/ui/molecules/SocialButtonsComponent.vue";
+import { onMounted, ref } from "vue";
+
+const contact = ref({})
+
+onMounted(async () => {
+  const apiUrl = import.meta.env.VITE_BACKEND_URL + '/api'
+  const response = await fetch(apiUrl + '/contact?populate[0]=social').then(res => res.json())
+  contact.value = response.data.attributes
+  console.log(contact.value.phone)
+})
 </script>

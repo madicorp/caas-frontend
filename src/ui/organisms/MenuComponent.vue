@@ -11,19 +11,19 @@
         <LightAndDarkLogosComponents class="logo" />
         <div class="mainnav d-none">
           <ul class="main_menu">
-            <li class="menu-item active">
+            <li class="menu-item" :class="{active: currentRoute === 'accueil'}">
               <RouterLink to="/">Accueil</RouterLink>
             </li>
-            <li class="menu-item">
+            <li class="menu-item" :class="{active: currentRoute === 'qui-sommes-nous'}">
               <RouterLink to="/qui-sommes-nous">Qui Sommes nous ?</RouterLink>
             </li>
-            <li class="menu-item">
+            <li class="menu-item" :class="{active: currentRoute === 'prix-et-distinctions'}">
               <RouterLink to="/prix-et-distinctions">Distinctions</RouterLink>
             </li>
-            <li class="menu-item">
+            <li class="menu-item" :class="{active: currentRoute === 'devis'}">
               <RouterLink to="/devis">Devis</RouterLink>
             </li>
-            <li class="menu-item">
+            <li class="menu-item" :class="{active: currentRoute === 'contact'}">
               <RouterLink to="/contact">Contact</RouterLink>
             </li>
           </ul>
@@ -61,7 +61,8 @@
         <div class="footer_elements d-flex align-items-center justify-content-center">
           <div class="footer_elements_inner">
             <div class="footer_social">
-              <SocialButtonsComponent class="social_list justify-content-center" />
+              <SocialButtonsComponent class="social_list justify-content-center"
+              :socials="contact.social" />
             </div>
            <CopyrightComponent />
           </div>
@@ -72,13 +73,18 @@
 </template>
 <script setup lang="ts">
 import { configure_menu, toggle_menu, toggle_aside } from "@/utils/theme";
-import { RouterLink } from 'vue-router';
-import { onMounted } from "vue";
+import { RouterLink, useRoute } from 'vue-router';
+import { onMounted, ref, computed } from "vue";
 import SocialButtonsComponent from "@/ui/molecules/SocialButtonsComponent.vue";
 import CopyrightComponent from "@/ui/molecules/CopyrightComponent.vue";
 import LightAndDarkLogosComponents from "@/ui/molecules/LightAndDarkLogosComponents.vue";
-
-onMounted(() => {
+const route = useRoute()
+const contact = ref({})
+const currentRoute = computed(() => route.name)
+onMounted(async () => {
   configure_menu()
+  const apiUrl = import.meta.env.VITE_BACKEND_URL + '/api'
+  const response = await fetch(apiUrl + '/contact?populate[0]=social').then(res => res.json())
+  contact.value = response.data.attributes
 })
 </script>
