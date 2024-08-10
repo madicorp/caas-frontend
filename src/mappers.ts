@@ -54,6 +54,7 @@ export const projectMapper = (data: any): Project => {
       place: data.attributes.information.place,
       client: data.attributes.information.client,
       category: data.attributes.information.category,
+      description: data.attributes.information.description
     },
     media: data.attributes.gallery.data.map(mediaMapper),
   };

@@ -79,7 +79,18 @@ import SocialButtonsComponent from "@/ui/molecules/SocialButtonsComponent.vue";
 import CopyrightComponent from "@/ui/molecules/CopyrightComponent.vue";
 import LightAndDarkLogosComponents from "@/ui/molecules/LightAndDarkLogosComponents.vue";
 const route = useRoute()
-const contact = ref({})
+const contact = ref<{
+  email: string,
+  phone: string,
+  address: string,
+  social: {
+    facebook: string,
+    twitter: string,
+    instagram: string,
+    youtube: string,
+    linkedin: string
+  }
+}>({} as any)
 const currentRoute = computed(() => route.name)
 onMounted(async () => {
   configure_menu()

@@ -63,13 +63,23 @@ import SocialButtonsComponent from "@/ui/molecules/SocialButtonsComponent.vue";
 import LogoComponent from "@/ui/atoms/LogoComponent.vue";
 import { onMounted, ref } from "vue";
 
-const contact = ref({})
+const contact = ref<{
+  email: string,
+  phone: string,
+  address: string,
+  social: {
+    facebook: string,
+    twitter: string,
+    instagram: string,
+    youtube: string,
+    linkedin: string
+  }
+}>({} as any)
 
 onMounted(async () => {
   const apiUrl = import.meta.env.VITE_BACKEND_URL + '/api'
   const response = await fetch(apiUrl + '/contact?populate[0]=social').then(res => res.json())
   contact.value = response.data.attributes
-  console.log(contact.value.phone)
 })
 
 </script>
