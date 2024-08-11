@@ -108,6 +108,7 @@
 }
 @media screen and (max-width: 576px) {
   .explored-projects {
+    height: 40vh;
     .works-info {
       position: relative;
     }
